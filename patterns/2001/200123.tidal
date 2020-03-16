@@ -1,0 +1,21 @@
+setcps 1.4
+
+
+d1
+  $chunk 4 (hurry 2)
+  $s "reverbkick hh27*2 clap hh27*2" #shape 0.25
+  #n (run "<8 12 8 25>")
+
+d2 $jux rev
+  $sometimes (stut 2 0.7 0.125)
+  $s "amenall2*4" #n (run "<8 16 24 12>") #speed 1.3
+
+d3
+  $sometimesBy 0.25 (#accelerate 1.25)
+  $sometimes (off 0.125 (|*|speed 2)) $s "bass1:35*2" #up "<0 0 2 7>"
+
+d4
+  $every 4 (jux rev)
+  $s "lfse(3,8)" #legato 1.25 #speed (range 1 4 (slow "<2 4>" saw))
+
+d5 $whenmod 4 2 (fast 4 . degrade) $s "[ifdrums,808bd]*2" #shape 0.25

@@ -1,0 +1,26 @@
+setcps 1.4
+
+p "uno"
+  $whenmod 8 6 rev
+  $arp "<up up down up>"
+  $n ("<a'min7'6 <d'min7'7 e'maj7'9>>" - "<12 12 12 0>")
+  #s "uno" #sustain (range 0.01 0.1 (slow 4 (rev saw)))
+
+hush
+
+p "unomod" $stack[
+  ccn "20*8" #ccv (range 20 120 (slow 8 sine)), -- cutoff
+  ccn "21*8" #ccv (range 70 100 (slow 7 cosine)), -- resonance,
+  ccn "44*8" #ccv 1 -- filter attack
+  ] #s "uno"
+
+d1
+  $sound "peri:1(5,8)?" #shape 0.2 #coarse 4 #speed 1.1
+
+d2
+  $while "t(<3 3 3 5>,8,<0 2>)" (#s (slow 8 "<909sd clap:3>"))
+  $while "f f [t f] f" (#s "909oh:3")
+  $sound "909hh*8" #shape 0.3
+
+d3 $slow 2 $sound "<glitchkick glitchkick(<3 3 5>,8)> glitchsd:5"
+  #room 0.5 #crush 6 #shape 0.5 #gain 0.9

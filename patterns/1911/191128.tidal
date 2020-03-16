@@ -1,0 +1,19 @@
+setcps 1.6
+
+d1
+  $sound "bass3:8*4"
+  #up "{0 2 5 7}%2"
+  #lpf (range 200 4000 rand) #resonance 0.5
+
+
+d2
+  $someCyclesBy 0.55 ((density "2 8 4 12").(#legato 0.7))
+  $whenmod 4 2 (|+|n 7)
+  $every 2 (|+|n 7)
+  $sometimes (stut 4 0.8 0.02)
+  $n "{0 1 2 3 4 5 6 7}%4"
+  #sound "amencutup" #room 0.6
+  #coarse (irand 5) #speed 1.3
+  #delay 0.8 #delayfb 0.8 #delaytime 0.06
+
+mute 1

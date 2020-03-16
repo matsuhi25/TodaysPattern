@@ -1,0 +1,28 @@
+setcps 1.05
+
+d1
+  $stack[
+  s "909bd:4*2",
+  every 8 (spin 6) $s "~ 909cp" |+|shape 0.25,
+  whenmod 4 2 rev $s "909hh:1(5,8,<0 3>)" #gain 0.8,
+  s "feel(<3 4>,8)" #n (run "<8 19>/2") #speed 2.2,
+  s ""
+         ] #shape 0.25
+
+d2
+  $jux rev
+  $s "lfse(3,8)" #legato 1
+  #up (("<0 7 4 2>" + "[0,7]") + 2)
+
+d3
+  $while "t(2,8)" (#accelerate 1.5)
+  $s "bass1:16(5,8)" #up ("<0 7>/2" - 1)
+  #cut 1 #distort 0.25
+
+d4
+  $chunk 4 (#crush 4)
+  $every 8 (slow 4)
+  $every 2 (jux rev)
+  $every 4 (#coarse 8)
+  $s "glitch*8" #n (run "<8 5 3 16>")
+  #speed (range 1 2 (slow 16 tri))

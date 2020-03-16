@@ -1,0 +1,31 @@
+setcps 1.4
+
+d1
+  $sometimesBy 0.3 (off 0.125 (#s "arrim:3"))
+  $chunk 4 (#crush 4)
+  $s "fmkick:5 arhh clap:3 <arhh*2 aroh arhh*2>"
+  #shape 0.25
+
+d2
+  $chunk 4 (fast 2)
+  $sometimes (|*|speed 2)
+  $every 2 rev $n "{1 <1 2>}%4"
+  #s "bass1*4" #legato 0.75
+  #lpf (range 100 2500 rand) #resonance 0.125
+  #up "{0 0 3 -2}%1"
+
+d3
+  $stut 4 0.4 0.3 $slow 4
+  $s "arp:1" #speed 0.5 #up ("<0 3 -2 0>" - 1)
+  #room 0.3 #sz 0.9 #pan rand #gain 0.95
+
+d4
+  $someCyclesBy 0.35 (|+|n 2)
+  $someCycles (stut 2 0.4 0.125)
+  $s "amenall2*4" #n (run "<9 12 12 7>")
+  #speed 1.35 #room 0.4
+
+d5
+  $stutWith 8 0.125 (|+ speed "1.2")
+  $s "[<hardkick:5 hardkick:5(3,8)> glsd:5]/2"
+  #room 0.3 #sz 0.5 #gain 0.9

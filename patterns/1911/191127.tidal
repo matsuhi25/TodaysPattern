@@ -1,0 +1,13 @@
+d1
+  $sometimes (|*|speed "-1")
+  $sometimes (stut 4 0.5 0.3)
+  $stack[
+  sound "808*2" #speed "0.5 0.75",
+  sound "808*2.0003" #speed "1.0 1.25",
+  sound "808*2.007" #speed "1.8 2.25",
+  sound "808*3.3" #speed (range 3.0 4.5 rand)
+         ]
+  #room 0.9 #sz 0.9 #coarse (irand 8)
+  #pan rand #crush ((irand 4) + 4)
+
+hush

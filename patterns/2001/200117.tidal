@@ -1,0 +1,22 @@
+setcps 1.4
+
+d1
+  $jux rev
+  $sometimes (off 0.125 (#speed 4))
+  $chunk 4 (hurry 2)
+  $density "1 1 2 1" $s "bass1:5*4"
+  #n ((run "<8 14 24 32>") + 2)
+  #shape 0.125 #legato 0.85
+
+d2
+  $someCyclesBy 0.3 ((stut 2 0.7 0.125).(#cut 1))
+  $s "amencutup*4" #n (run "<4 <11 8> 9 28>")
+  #speed 1.55 #shape 0.5 #room 0.3
+
+d3
+  $every 3 (|+|coarse 12)
+  $whenmod 4 2 (iter 4)
+  $chunk 4 (hurry 2) $s "~ juno:2 moog:2 ~" #cut 2
+  #room 0.7 #sz 0.8 #gain 0.8 #coarse 8
+
+hush

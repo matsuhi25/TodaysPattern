@@ -1,0 +1,30 @@
+setcps 1.45
+
+d1
+  $sometimesBy 0.15 ((#s "rx15:5").(#legato 1.0))
+  $while "t(3,8,<0 0 0 2>)" (#gain 1.0)
+  $s "rx15:4*8"
+  #shape ((range 0.1 0.5 rand) + 0.2)
+  #gain ((fast ((irand 5)+1) perlin/2)+0.5)
+  #delay 0.8
+  #delayfb (fast 3 (perlin/2+ 0.44))
+  #delaytime (range 0.006 0.06 (fast 3 perlin))
+  #speed (range 0.9 1.1 (slow 5 perlin))
+  #coarse ((irand 3) + 1)
+
+d2
+  $every 3 (#coarse 16)
+  $every 5 (spin 3)
+  $every 6 (jux rev)
+  $every 2 (#vowel "o u i e")
+  $whenmod 8 6 (#cutoff (range 1000 8000 (slow 2 saw)))
+  $every 8 (density "1 2")
+  $stack[
+    s "reverbkick*2" #shape 0.5,
+    s "pirate*2" #legato 0.65
+        #begin (randcat[0.15,0.25,0.65])
+        #shape 0.5 #up (slow 2 "<0 7 10 -7>"),
+    s "bass0*2" #shape 0.5,
+    s "[~ 909cp]*2" #speed 1.2 #shape 0.3
+  ] #gain 0.9
+  #resonance 0.25

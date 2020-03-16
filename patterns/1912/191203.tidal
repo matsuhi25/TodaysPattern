@@ -1,0 +1,39 @@
+setcps 1.5
+
+p "uno"
+  $while "{f t f f f f}%8" (|+|sustain 0.05)
+  $randcat[
+    midinote ("{0 7 14 15}%8" + 49 + "0 12"),
+    midinote ("{0 ~ 1 0 7 5 ~ 12}%8" + 37),
+    midinote ("{0*2 3*3 5*2 10*3}%4" + 61),
+    midinote ("{0 7}%8" + "{0 12 5 -7}%2" + 37),
+    midinote ("{12 0 24 36}%12" + "{0 7 2 0}%4" + 49),
+    midinote ("{0 <3 15> <7 5 7>}%12" + "{0 5 0 5}%3" + 61),
+    midinote ("{0 <3 15> <7 5 7>}%12" + "{0 5 0 5}%3" + 73)
+          ]
+  #s "uno" #sustain 0.01
+
+p "unomod" $stack[
+  ccn "20*4" #ccv (range 40 100 (slow 8 sine)), -- cutoff
+  ccn "21*4" #ccv (range 40 120 (slow 11 tri)), -- resonance,
+  ccn "44*8" #ccv (irand 20) -- filter attack time
+  ] #s "uno"
+
+d1
+  $every 4 (rot 4) $every 5 (jux rev)
+  $n (slow 2 ("{0 .. 7}%1" + 29))
+  #sound "amenall2*8" #speed 1.2 #shape 0.2 #room 0.3
+
+d2
+  $jux rev
+  $sound "glitch*8" #n (irand 20) #room 0.2
+  #speed (range 1.0 2.0 (slow 8 tri))
+  #delay 0.7 #delayfb 0.6 #delaytime (range 0.01 0.1 (slow 7 sine))
+  #crush ((irand 8) + 4) #coarse (irand 20)
+
+hush
+
+
+
+
+

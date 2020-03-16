@@ -1,0 +1,26 @@
+d1
+  $chunk 4 (#crush 6)
+  $stack[
+  whenmod 32 28 (#gain 0) $s "808bd:6(<2 [3 1]>,8)",
+  sometimesBy 0.25 (0.125 <~) $s "[~ rx15:4]*2",
+  s "rx15:11*8" #gain (density "<13 7>" cosine/2+0.5),
+  s "<909rim(3,8) [[~ 909rim] [[~ 909rim] ~]]>",
+  s "~ <~ [~ rx15:3]>" #speed 1.25 #coarse 4,
+  s ""
+         ] #room 0.05 #shape 0.25
+
+d2
+  $every 4 (spin 2)
+  $sometimes (|+|n "<12 24>") 
+  $juxBy 0.25 (fast 2)
+  $s "[rash(3,8)]/2"
+  #n (choose[0,2,7,11,12,14,16,23] + 26)
+  #room 0.25 #sz 0.9
+
+d3 $s "bass1:16(3,8)" #up ("<0 7 4 4>/2" + 2)
+
+d4
+  $s "~ bev" #speed "1.27"
+  #legato 1 #begin 0.3
+  #room 0.5 #sz 0.6
+  #hpf 300 #lpf (range 700 7000 (slow 8 saw)) #resonance 0.25

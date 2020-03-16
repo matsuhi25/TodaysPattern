@@ -1,0 +1,27 @@
+setcps 1.4
+
+d1
+  $someCycles (stut 2 0.5 0.125)
+  $s "amenall2*4" #speed 1.25 #legato 0.8
+  #n (run "<7 5 19 <25 32>>")
+  #shape 0.2
+
+d2
+  $sometimesBy 0.15 (|+|n (irand 20))
+  $sometimesBy 0.25 (#accelerate 2)
+  $chunk 4 (hurry 2)
+  $n "15 [15 15?]" #s "bass1"
+
+d3
+  $sometimes (off 0.125 (|+|n 12))
+  $density (randcat[1,2,1.5,0.5])
+  $s "pulse*4"
+  #n (slow 2 (randcat[0,4,7,11,12,14,16] + "<24 36>"))
+  #coarse (slow 4 (run 12))
+  #room 0.5 #sz 0.9 #gain 0.85
+
+d4
+  $slow 4 $n "<0 4 -1 0>"
+  #s "superhammond" #gain 0.75
+  #room 0.8 #sz 0.9
+

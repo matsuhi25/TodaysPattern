@@ -1,0 +1,15 @@
+setcps 1.2
+
+d1 $every 8 (|+|n 5) $chunk 4 (off 0.25 (hurry 2)) $n "0 5*2 2 7" #s "454kit" #shape 0.25
+
+d2 $s "arpy*4" #n (slow 2 (run "<12 23 12 7>")) #up "-5" #room 0.5 #sz 0.9 #gain 0.9
+
+d3 $every 4 (density 2) $jux rev $s "bass [~ bass?]" #up "0" #shape 0.5 #n 4 #coarse 4
+
+d4 $slow 4 $striate "<1 [1 4] [8 3] 2 [4 5 2 1]>" $s "lfep:5" #cut 1 #up "-1" #shape 0.5 #room 0.5 #sz 0.8 #gain 0.9
+
+d5 $chunk 4 (hurry 2) $sometimes (off 0.125 (|+|n 1)) $s "rx15:2 sn 808 clap:4" #up "-1" #room 0.5 #sz 0.8 #gain 0.95
+
+d6 $every 4 (#n (irand 7)) $s "glitch*8" #n 2 #cutoff (range 1000 8000 (slow 16 cosine)) #resonance 0.2
+
+

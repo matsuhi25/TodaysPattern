@@ -1,0 +1,28 @@
+setcps 1.1
+
+d1 $sound "rx15*2" #shape 0.5
+  #speed 0.93
+
+d2
+  $juxBy 0.25 (|*|speed "1.05")
+  $sometimes (off 0.125 (|*|speed "<2 3 2.5 3.75>"))
+  $sound "rx15(3,8,<0 2>)" #n 1
+  #room 0.9 #sz 0.9 #gain 0.75
+
+d3
+  $someCyclesBy 0.3 (#speed "1 2 3 5 3 1")
+  $every 3 (#coarse (irand 4))
+  $every 5 (sometimes (#accelerate "1.5"))
+  $whenmod 8 6 (#cutoff (range 100 7000 (slow 2 (every 3 rev saw))))
+  $while "t(<3 3 3 5>,8,<0 2>)" (#gain 1)
+  $sound "<rx15*8>"
+  #n (sometimes (fast 2) (slow 4 "<3 7 9 13 2>"))
+  #gain ((slow 3 perlin)/4+0.75)
+  #delay 0.9 #delayfb (perlin/4+0.6)
+  #delaytime (range 0.01 0.1 (slow ((irand 8)+1) sine))
+  #resonance 0.15 #gain 0.95
+
+d4 $slow 2 $sound "xx" #n (randcat[61,70,68] - "<-12 12>")
+  #coarse ((irand 4) + 4) #shape 0.5
+  #room 0.8 #sz 0.9 #gain 0.8
+  #tremdp 0.9 #tremr ((irand 12) + 1)

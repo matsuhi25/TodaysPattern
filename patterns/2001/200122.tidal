@@ -1,0 +1,30 @@
+setcps 1.4
+
+
+d1
+  $whenmod 8 5 (|+| n "-12")
+  $sometimes (off 0.125 (|+|n 12))
+  $someCyclesBy 0.3 (degradeBy 0.45)
+  $someCyclesBy 0.25 (slow 2)
+  $every 2 (jux rev)
+  $randcat[
+  n "[0,7](3,8)",
+  n "[0,5](3,8)",
+  n "{0 2 5 7 12}%8",
+  n "[[0 7] 14 7 10]/2",
+  n "0 -5"
+           ]
+  #s "superhammond" #room 0.3 #voice 5
+
+d2
+  $whenmod 32 28 ((#n 1).(density "<1 [1 1.5] 2 [3 4]>").(#sz "<0.2 0.3 0.5 0.9>"))
+  $someCyclesBy 0.3 (stut 2 0.75 0.125)
+  $s "amenall2*4" #n (run "<12 29 12 72>")
+  #speed 1.2 #room 0.2 #shape 0.25
+
+d3
+  $someCyclesBy 0.25 (degradeBy "0 0.75")
+  $while (every 4 inv "t(3,8)") (#accelerate "1.5")
+  $s "bass1*2 [bass1 [bass1*2]?]" #n "{2 1 1 2 1}%4"
+  #up (slow 2 "<0 2 7 5>")
+  #lpf (range 200 2500 rand) #resonance 0.25 #legato 0.8

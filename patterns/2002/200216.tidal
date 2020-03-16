@@ -1,0 +1,29 @@
+setcps 1.4
+
+d1
+  $slow 4
+  $sometimes (off 0.125 (|*|speed 2))
+  $s "elpad1(<3 <3 5>>,8)" #legato 2
+  #n (someCycles (|+ 1) (slow 5 "1 .. 8"))
+  #room 0.25 #sz 0.9 #gain 0.85
+  #shape 0.3
+
+d2
+  $sometimesBy 0.2 (#s "aroh")
+  $off (choose[0,0.125]) (#s "arhh")
+  $s "arkick(<3 <3 5>>,8)"
+
+d3
+  $sometimes (|*|speed "-1")
+  $sometimes (off 0.125 (|*|speed 2))
+  $s "[909tom(6,8,[3 0])]/2"
+  #coarse ((irand 16) + 16)
+  #n (irand 20)
+
+d4
+  $jux rev
+  $s "elsiren:8(3,8)"
+  #legato 2.5 #begin (slow 8 saw)
+  #gain 0.85 #coarse (irand 16)
+  #lpf (range 1000 8000 (slow 8 tri))
+  #resonance 0.1

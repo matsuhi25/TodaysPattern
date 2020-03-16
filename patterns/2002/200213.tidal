@@ -1,0 +1,28 @@
+setcps 1.4
+
+d1
+  $off (choose[0,0.125,0.25]) (#s "arcp")
+  $s "ifdrums(<3 <3 5>>,8,<0 2>)" #shape 0.5
+
+d2
+  $chunk 4 (ply 8)
+  $s "peri*8" #n ((run "<6 12>") + 1)
+  #gain 0.85 #shape 0.25
+
+d3 $stutWith 8 0.125 (|+ speed "1.1")
+  $slow 2 $s "elpad:1 glsd" #room 0.25 #legato 1
+
+d4
+  $whenmod 8 5 (|+|n "-12")
+  $every 3 rev
+  $every 5 rev
+  $s "supersquare*8"
+  #n ("{0 3 2 3 10 14}%8" + 12)
+  #gain 0.85 #room 0.5 #sz 0.9
+  #voice (range 0.1 0.9 (slow 16 sine))
+  #cutoff (range 200 8000 (slow 34 tri))
+  #resonance 0.125
+  #sustain (range 0.03 0.25 (slow 16 cosine))
+  -- #accelerate (range 0.0  0.9 (slow 32 saw))
+
+hush

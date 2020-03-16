@@ -1,0 +1,23 @@
+d1
+  $chunk 4 (hurry 4)
+  $s "elpad2(<3 <3 5>>,8)" 
+  #n "<[1 .. 12]>/<2 4 2 3>" #legato 2
+  #room 0.5 #sz 0.7
+  #gain (range 0.85 1 rand)
+  #shape 0.5
+
+
+d2
+  $chunk 4 (ply 4)
+  $s "arkick*2 arcp*4"
+
+d3
+  $sometimesBy "0 0.5" (#s "glhh")
+  $s "glcp*8"
+  #gain (range 0.8 1 (fast 12 perlin))
+
+d4
+  $sometimes (|+|n 12)
+  $s "supersquare(3,8)" #sustain 0.3
+  #accelerate 2 #gain 0.8
+  #n "-12" #room 0.5

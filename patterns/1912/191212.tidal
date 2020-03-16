@@ -1,0 +1,22 @@
+setcps 1.1
+
+d1
+  $sometimes (off 0.125 (|*|speed 4))
+  $sound "ifdrums*8?" #shape 0.9 #gain 0.8
+  #crush 4
+
+d2
+  $while "t(3,8)" (#gain 1)
+  $sometimesBy 0.25 (#s "[909oh,glitch]")
+  $s "909hh*8" #gain ((density "<1.5 0.75 2.5>" perlin / 2 + 0.4))
+  #delay 0.8 #delayfb (fast 3 (perlin/2+0.5))
+  #delaytime (range 0.01 0.1 rand)
+  #n (irand 20) #shape 0.5 #legato (range 0.3 0.9 (slow 5 tri))
+
+d3
+  $chop ((irand 8) + 1) $sometimesBy 0.9 (#accelerate "<1.5 2.0 0.5>")
+  $sound "ade" #speed (rand + 1) #coarse 43 #cut 1
+  #shape 0.7 #room 0.5 #gain 0.8 #pan rand
+  #speed (range 0.85 2.2 rand)
+  
+

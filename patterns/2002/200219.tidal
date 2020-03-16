@@ -1,0 +1,7 @@
+d1
+  $s "[supervibe(3,8)]/2" #sustain 1
+  #n (slowcat[0,4,7,11,12,14,16])
+  #room 0.3 #sz 0.9 
+
+hush
+

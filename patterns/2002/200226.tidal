@@ -1,0 +1,24 @@
+d1
+  $every 2 (sometimes (off 0.25 (|*|speed "2")))
+  $sometimes (|*|speed "-1")
+  $juxBy 0.25 (rev)
+  $s "gtr(3,8)"
+  #up ("{0 0 2 4 9 11 11 14}%7" - 1)
+  #gain (slow 3 (range 0.65 1 saw))
+  #pan (range 0.2 0.8 rand)
+
+hush
+
+d2
+  $sometimes (off 0.125 (|*|speed 2))
+  $jux (|*|speed "1.06")
+  $s "rx15*4" #n (run "<8 12>")
+
+d3
+  $someCyclesBy 0.3 (stut 2 0.7 0.125)
+  $s "amenall2*4" #n (run "<11 8>")
+  #lpf (range 3000 5000 (slow 8 tri))
+  #coarse "4" #speed 0.9
+  #resonance 0.15
+
+

@@ -1,0 +1,25 @@
+setcps 1.4
+
+hush
+
+d1
+  $every 3 (#n (irand 20))
+  $spin 3
+  $every 5 (slow 6)
+  $plyWith ((irand 12) + 2) (|+ speed (range 0 1.5 rand))
+  $s "[<elpad2*2 elpad4*4> , <glcp*4 glhh*8 glkick*3>]"
+  #legato (range 0.5 8 rand)
+  #shape rand #distort rand
+  #room 0.4
+  #sz (range 0.0 0.8 (slow 16 cosine))
+  -- #accelerate (range 0 3 (slow 17 tri))
+
+
+d2
+  $stut ((irand 6) + 1) 0.75 (range 0.001 0.1 rand)
+  $sometimesBy 0.3 (#s "arrim")
+  $sometimesBy 0.25 (|+ n "{1 2 3 4}%2")
+  $off (choose[0,0.125]) (#s "[909hh:5]")
+  $s "[amenall2,glkick](<3 <3 5>>,8)"
+  #n 2 #shape 0.7 #gain 1.1
+  #coarse (whenmod 16 8 (|+ 4) (irand 4))

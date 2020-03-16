@@ -1,0 +1,17 @@
+setcps 1.1
+
+d1
+  $spin 2
+  $sound "909cp(5,8)" #shape 0.5 #distort 0.8 #crush 4
+  #coarse (irand 20) 
+
+d2 $sound "909*4?" #shape 0.5
+
+d3 $sound "808hh*4 [808oh:1 808hh*2]" #cut 1 #speed 1.1
+
+d4 $every 4 (spin 2) $sound "bass0(3,8,<0 2>)"
+
+d5 $s "glitch*8" #n (irand 8) #speed (range 1.0 2.0 (fast 3 perlin)) #shape 0.25 #delay 0.5 #delaytime (range 0.01 0.1 (fast 3 perlin)) #delayfb 0.8
+
+
+

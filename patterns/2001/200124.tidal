@@ -1,0 +1,22 @@
+setcps 1.1
+
+d1
+  $someCyclesBy 0.3 (jux rev)
+  $every 4 (#coarse 4)
+  $every 8 (rot 4)
+  $stack[
+  s "[ifdrums [~ bd]] [~ <~ ifdrums>]",
+  s "[~ [hh27 hh27?]]*2" #shape 0.5,
+  every 4 ((spin 3).(jux rev)) $s "~ clap:3",
+  s "rx15:11*8" #gain "{0.9 0.8 1.0 0.7}%4",
+  s ""]
+
+d2
+  $s "[supervibe(3,8)]/2" #sustain 1
+  #up (slowcat[0,4,7,11,12,14,23])
+  #room 0.5 #sz 0.8 #gain 0.8
+
+d3 $s "bass1:3" #up "<0 4 5 7>/4" #cut 1
+
+
+hush

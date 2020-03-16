@@ -1,0 +1,22 @@
+
+d1 $sometimesBy 0.3 (off 0.25 (#s "arcp:0"))
+  $s "arkick:2*2"
+
+d2 $sometimesBy 0.3 (off 0.25 (#s "aroh"))
+  $fast 2 $s "~ arhh*2" #cut 1
+
+d3 $s "arrim*8?"
+
+d4 $s "bass1:3(3,8,<2 <2 0>>)" #up "2"
+  #legato (range 1 2 (perlin))
+
+d5
+  $sometimes (off (choose[0,0.125]) (|*|speed 2))
+  $someCyclesBy 0.25 ((|*|speed "-1") . (slow 2))
+  $degradeBy 0.3
+  $juxBy 0.5 (fast 2)
+  $s "[gtr(3,8)]/2"
+  #up (choose[0,4,11,14,-1] + 2)
+  #room 0.5 #sz 0.8 #gain 0.8
+
+

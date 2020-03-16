@@ -1,0 +1,25 @@
+setcps 1.25
+
+d1
+  $every 4 (#gain 0)
+  $s "bass1:1(<2 3 5 3>,8,<0 0 2>)" #cut 1
+  #up "<0 7 10 <7 5>>"
+  #gain 0.9
+
+d2 $someCyclesBy 0.25 (chop 8) $chunk 4 (off 0.125 (hurry 2)) $s "peri:1 [feel:4 <feel:10 peri:1>] 909cp <peri:4*2 808>" #shape 0.5
+  
+d3
+  $sometimesBy 0.25 (#s "[909oh,glitch]")
+  $while "t(3,8)" (#gain 1.0)
+  $s "909hh*8" #gain (range 0.7 0.95 (density 5 perlin))
+  #delay 0.8 #delayfb 0.8
+  #delaytime (range 0.01 0.08 (slow 8 sine))
+  #n (irand 20) #speed 0.85
+
+d4
+  $arp "{up down [up down] <up down up up>}%5"
+  $n ("<c'min7'6 af'maj7'9 ef'maj7'6 g'min7'11>" - 12)
+  #s "supersaw" #voice 0.7 #gain 0.85
+  #room 0.5 #sz 0.7 #sustain 0.125
+
+hush

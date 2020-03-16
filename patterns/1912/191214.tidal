@@ -1,0 +1,17 @@
+setcps 1.1
+
+d1 $sometimes (off 0.125 (|*|speed 3.5 ))$s "rx15(3,4,<0 1>)" #speed 0.85
+
+d2 $sometimesBy 0.15 (#s "rx15:4") $s "rx15:3*8" #cut 1
+  #delay 0.8 #delayfb (perlin/2 + 0.45) #delaytime (rand * 0.1)
+
+
+d3 $chunk 4 (fast 2) $s "rx15:2 rx15:6*2 ~ rx15:2"
+
+d4
+  $every 3 (off 0.125 (|+|n "-12"))
+  $every 5 (|+|n 12)
+  $sometimes (|+|n 7)
+  $every 2 (jux rev)
+  $s "supersquare(3,8)" #gain 0.85
+  #sustain (range 0.05 0.3 rand)

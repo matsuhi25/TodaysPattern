@@ -1,0 +1,26 @@
+setcps 1.2
+
+d1
+  $stut ((irand 4)+1) 0.8 (range 0.001 0.25 (slow 8 sine))
+  $s (sometimes (fast 2) "glhh*4") #coarse 4 #legato 0.25
+  #lpf 3500
+
+d2 $chunk 4 (density 3) $s "glkick*4"
+
+d3
+  $while "{f f t}%4" (#crush 4)
+  $while "t(3,8)" (#speed "<1 0.75 2 1.5>")
+  $s "lfse(6,8,<[0 1] [2 0]>)"
+  #legato 0.8 #speed (range 1 4 (slow 4 saw))
+  #shape 0.6
+
+d4
+  $sometimesBy 0.25 (#accelerate "<2 4 -0.5>")
+  $s "bass3*4" #n (slow 8 (run 20))
+  #shape 0.4 #cut 1
+
+d5
+  $stutWith 16 0.125 (|+ speed 1.1)
+  $ s "glsd:3/2"
+  #room 0.5 #sz 0.9 #speed 0.5
+  #coarse (irand 8)

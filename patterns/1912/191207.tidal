@@ -1,0 +1,28 @@
+setcps 1.15
+
+d1 $s "ifdrums*2"
+
+d2
+  $degradeBy 0.1
+  $sound "hh27*8" #shape 0.3 #room 0.1
+
+d3
+  $someCyclesBy 0.25 (#n (irand 7))
+  $someCyclesBy 0.45 (hurry " 4 12 8 24")
+  $sound "glitch*8" #shape 0.1
+  #pan rand #coarse (irand 4)
+  #vowel "{ o u e i a }%8" #resonance 0.2
+  #gain 0.95
+
+p "uno"
+  $every 3 rev
+  $while "{f f <f t> f}%8" (slow 4)
+  $midinote ("{0 4 7 11 14}%8" + "{36 24 48}%4")
+  #s "uno" #sustain (range 0.01 0.1 rand)
+
+p "unomod" $stack[
+  ccn "5", -- glide time
+  ccn "20*8" #ccv (range 40 110 (slow 5 tri)), -- cutoff
+  ccn "21" #ccv "90", -- resonance,
+  ccn "44" #ccv 1 -- filter attack
+  ] #s "uno"

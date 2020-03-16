@@ -1,0 +1,26 @@
+setcps 1.4
+
+
+d1
+  $someCycles (|-|legato 1.25)
+  $every 4 rev
+  $sometimes (#crush 6)
+  $someCyclesBy 0.2 (|+|n "{-2 0 -3 1 0 3}%4")
+  $s "bass1(6,8,{0 2 0 3 0 7}%2)" #n 23 #legato 2.0
+  #up (slow 2 "<0 3 10 7>") #coarse 3
+
+d2
+  $sometimes (off 0.125 (|+| n 12))
+  $sometimesBy 0.45 (off 0.01 ((slow 8).(|-|n 24)))
+  $s "superpwm*8" #n (randcat[0,3,5,7,10,12])
+  #room 0.5 #sz 0.9 #gain 0.85
+
+d3
+  $every 4 (jux rev)
+  $sometimes (stut 2 0.7 0.125)
+  $s "amenall2*4" #speed 1.25
+  #n (run "<7 5 11 18>")
+  #shape 0.5 #room 0.2
+
+d4 $s "<<peri:1 peri:1(3,8) peri:1*2 peri:1(5,8)?> glsd>"
+  #room 0.5 #shape 0.1

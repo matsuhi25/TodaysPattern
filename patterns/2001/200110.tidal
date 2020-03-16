@@ -1,0 +1,18 @@
+setcps 0.725
+
+d1
+  $sometimes (off 0.125 ((#s "lfbd:2").(#gain 0.75)))
+  $s "[lfbd:2 lfbd:2?] lfhh:2 lfsd lfhh:2"
+  #lpf 2000 #resonance 0.1
+
+d2 $slow 2 $s "bass1"
+
+d3 $chop "<8 4 1>" $stut 3 0.1 0.3 $s "gtr:3" #up (choose[-1,0,7,2,4,11]) #pan rand #gain 0.85
+
+d4 $striate 8 $slow 2 $s "lfnoise" #cut 1 #gain 0.7
+  #n (irand 20) #lpf (range 500 4000 (slow 8 cosine))
+
+d5 $s "pad:2(3,8)" #gain 0.65 #up (slow 2 "<0 4 5 2>")
+  #room 0.5 #sz 0.9
+
+hush

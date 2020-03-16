@@ -1,0 +1,27 @@
+setcps 1.2
+
+p "uno"
+  $while "{f f f f f f t f}%4" (|+| sustain 0.1)
+  $reset "uno"
+  $midinote ("{0 ~ 0 0 0 1 5 10}%8" + 36)
+  #s "uno" #sustain 0.01
+
+p "unomod" $stack[
+  ccn "20*4" #ccv (range 60 100 (slow 8 tri)), -- cutoff
+  ccn "21*4" #ccv (range 50 100 rand), -- resonance,
+  ccn "44" #ccv (irand 10) -- filter attack
+  ] #s "uno"
+
+d1
+  $chunk 4 (hurry 2)
+  $s "peri:1 [909hh sn] clap:3 <909hh 909oh 909hh 808>"
+
+d2
+  $jux ((rev).(|+|n 1))
+  $ chew 4 "{0 0*2 0*3 0 0}%4"
+  $ n "{0 1 2 3 4 5 6 7}%4"
+  # s "glitch"
+  #delay 0.7 #delayfb 0.5 #delaytime (range 0.01 0.1 (slow 8 tri))
+  #speed (range 1.0 1.5 (slow 8 sine)) #room 0.2
+
+unmute "uno"

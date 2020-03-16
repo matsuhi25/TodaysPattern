@@ -1,0 +1,28 @@
+setcps 1.15
+
+
+
+d1
+  $sometimes (#accelerate "1.3")
+  $s "909sd(5,8,<0 2>)"
+  #speed "0.45" #shape 0.2
+  #up "<0 7 5 10>" #coarse (irand 2)
+  #lpf (range 150 250 rand) #resonance 0.8
+  #gain 0.65 #room 0.5
+
+d2 $every 2 (degradeBy 0.3) $juxBy "<0.25 0.5 0.125 0.7>" (|*|speed "1.05") $s "909*8"
+
+d3
+  $sometimesBy 0.25 (off 0.125 (#s "909oh"))
+  $while "t(<3 3 3 5>,8)" (#gain 1.0)
+  $s "909hh*8" #n (irand 20)
+  #gain ((fast 3 (perlin/4+0.75)) - "0.05")
+  #delay (range 0.8 0.95 (density 3 perlin))
+  #delayfb (range 0.6 0.8 (density 3 perlin))
+  #delaytime (fast 5 ((perlin*0.1) + "0.005"))
+  #shape 0.5
+
+d4
+  $s "909ride(5,8)" #accelerate "3.5" #legato 2.0
+  #coarse 4 #speed (randcat[0.35,0.45])
+  #pan rand #shape 0.25 #hpf 500

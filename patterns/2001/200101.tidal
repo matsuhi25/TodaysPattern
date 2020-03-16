@@ -1,0 +1,11 @@
+setcps 1.125
+
+d1 $sometimesBy 0.25 (#accelerate "0.2") $striate "<4 2 3 5>" $s "pad:2" #gain 0.8 #cutoff (range 200 1200 (slow 8 tri)) #resonance 0.25 #coarse (slow 8 ((run 12)+1))
+
+d2 $fast 4 $degrade $s "reverbkick*2" #speed 1.25 #shape 0.25
+
+d3 $stut ((irand 8)+1) (0.5) (range 0.001 0.1 rand) $every 4 degrade $s "glitchhh*8" #gain (fast 7 (perlin/2+0.5))
+
+d4 $s "peri*8" #n (irand 20) #speed 0.75 #vowel "{o u i e a}%4" #resonance 0.15
+
+hush

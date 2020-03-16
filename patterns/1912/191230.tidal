@@ -1,0 +1,41 @@
+setcps 1.45
+
+d1
+  $reset 1
+  $degradeBy (slow 4 "<0.001 0.2 0.4 0.0001 0.8>")
+  $slice 4 (someCyclesBy 0.35 (|+ 1) "<4 0 2 1>")
+  $s "lfep:28" #cut 1 #shape 0.5 #coarse 2
+  #delay 0.25 #delayfb 0.55 #delaytime 0.3
+
+d2
+  $someCyclesBy 0.25 (
+    (#n "<0 1>").
+    (density (randcat[1,2])).
+    (jux (|*|speed "<1 1.5>")))
+  $whenmod 4 2 (scramble 2)
+  $every 2 (|+|n 4) $n ("{0 1 2 3}%4" + 29)
+  #s "amenall2" #speed 1.15
+  #room 0.5 #shape 0.4 #legato 0.9
+
+d3
+  $every 3 rev
+  $every 5 rev
+  $whenmod 8 5 (|+|n "-12")
+  $whenmod 17 13 (|+|n "-12")
+  $someCyclesBy 0.25 (|+|n 12)
+  $n ("{c e g b g4 c e g}%8" + 3) #s "supersquare"
+  #room 0.5 #sz 0.9 #gain 0.87
+
+d4
+  $every 3 (#coarse "8 12")
+  $every 4 (spin 3)
+  $every 5 (#legato 0.5)
+  $every 6 (jux rev)
+  $randcat[
+  s "peri*8",
+  s "glitch*8",
+  s "amencutup*8" #speed 1.8,
+  s "glitchperc*8"
+           ] #n (irand 20)
+
+hush

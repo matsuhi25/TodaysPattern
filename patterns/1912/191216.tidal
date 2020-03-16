@@ -1,0 +1,18 @@
+setcps 1.13
+
+d1
+  $sometimes (off 0.125 (|+|n 12))
+  $sound "xx(3,8)" #n ((choose[0,4,7,11,14]) + 37) #room 0.5 #sz 0.9 #gain 0.85
+
+d2 $sound "rx15*2" #shape 0.55 #coarse 2 #speed 0.85
+
+d3 $jux rev $sound "rx15:2(3,8)" #shape 0.5 #cutoff (range 1000 8000 (slow 8 tri))
+  #resonance 0.125
+
+d4 $sometimesBy 0.15 (#n "5") $n "4*4 [5 4*2]" #s "rx15" #cut 1 #shape 0.2 #speed 1.13 #room 0.3 #sz 0.3
+
+d5
+  $every 2 (jux rev)
+  $sound "bass3 [~ bass3]" #up ("<0 4 7 -1>" + 4) #resonance 0.25 #lpf (range 100 1000 rand)
+
+hush

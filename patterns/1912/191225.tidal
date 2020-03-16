@@ -1,0 +1,43 @@
+setcps 1.25
+
+d1
+  $someCyclesBy 0.35 ((density 4).(#legato 0.5).(#begin 0.025))
+  $density ((rand)*5+1)
+  $s "glitchkick*2" #n (irand 2) #cut 1
+  #shape 0.2
+
+
+d2
+  $sometimesBy 0.25 (#s "909oh")
+  $whenmod 8 6 (#lpf (range 4000 500 (slow 2 saw)))
+  $s "909hh*8" #n (irand 20)
+  #delay 0.9
+  #delaytime (range 0.001 0.1 (perlin))
+  #delayfb 0.8
+  #resonance 0.12
+
+d3
+  $stut 4 0.8 (range 0.001 0.01 (slow 5 sine))
+  $every 4 (jux rev)
+  $s "glitchcp(<5 3>,8)" #n 8 #speed (range 0.8 1.3 (slow 5 sine))
+
+d4
+  $juxBy 0.25 (|*|speed "1.05")
+  $sometimes (|+|n 3) $s "arpy*8" #coarse ((irand 20) + 32)
+  #shape 0.5
+
+
+d1 $s "808*4" #shape 0.5 #room 0.9 #sz 0.9 #crush 4
+  #up ("<0 7 14 16>" - 4)
+
+d2 $s "<peri:1 [808sd:1 [~ <~ peri:1>]]>" #shape 0.6
+  #room 0.7 #sz 0.7
+
+d3 $s "[808hh 808hh 808hh <808hh 808oh:1>]" #room 0.5 #shape 0.5 #cut 1
+
+d4
+  $off 0.5 (|*|speed "2")
+  $s "sqrpad:1" #up (slow 4 "<0 7 <2 10> 5>") #room 0.5 #sz 0.9
+  #legato 2.5
+
+hush

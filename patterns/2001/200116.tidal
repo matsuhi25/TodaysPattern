@@ -1,0 +1,21 @@
+setcps 1.35
+
+d1
+  $sometimes (stutWith 8 (1/8) (|+speed "1.04"))
+  $s "<<peri:1 peri:1(3,8)> glitchsd>" #shape 0.5
+
+d2 $jux rev $s "glitchcp(5,8)" #n 11 #speed (range 1 2 (slow 4 saw))
+
+d3 $sometimes (#coarse 32) $chunk 4 (hurry 2) $slow 2 $s "~ bass2*2 bass2*2 ~"
+
+d4
+  $juxBy 0.25 (|*|speed "1.04")
+  $s "<~ ~ ~ newnotes*8>" #n (run "<8 5 3>")
+  #coarse 4 #room 0.5 #sz 0.6 #shape 0.5 #speed 1.5
+
+d5 $sometimes (stut 2 0.9 0.125) $s "amenall2*4" #speed 1.6 #n (run "<4 8 9 2>") #shape 0.5 #coarse 2
+
+do
+  unsolo 4
+  unsolo 5
+

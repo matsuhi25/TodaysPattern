@@ -1,0 +1,18 @@
+setcps 1.4
+
+d1
+  $while "{t f}%4" ((#n 1).(iter "<4 2>"))
+  $sound "amenall2*4 amenall2*2"
+  #n (irand 20) #room 0.5 #speed 1.15
+  #shape 0.4
+
+d2
+  $while "{t f t f f}%4" (|+|n "[0,7]")
+  $n ("{7 5 0 12 7 5 14 0}%4" + (slow 4 "<35 37>"))
+  #s "xx" #gain 0.9
+
+d3
+  $whenmod 4 2 (off 0.15 )
+  $sound "jvbass(3,8)"
+  #n "<0 1 2 3>" #gain 1.12
+  #pan (choose[0,1]) #coarse 4

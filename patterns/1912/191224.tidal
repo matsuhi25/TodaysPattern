@@ -1,0 +1,37 @@
+setcps 1.25
+
+-- merry glitchmas!
+
+d1
+  $density 24
+  $someCyclesBy 0.3 (#accelerate 0.3)
+  $s "glitch:5(5,8)" #pan rand #shape 0.5
+  #room 0.5 #sz 0.4
+  #up (slow 2 "<0 1 5 -2>")
+  #coarse (irand 20)
+  #n (irand 20)
+  #cut 1
+
+d2
+  $someCycles (density "<4 2 3.5>")
+  $sometimesBy 0.3 (#legato 0.6)
+  $sometimes (fast 2)
+  $density (randcat[1,5,2,2,7,9])
+  $s "glitchkick:3" #shape 0.5
+  #cut 3
+
+d3
+  $whenmod 8 4 (#cutoff (range 4000 300 (slow 4 saw)))
+  $slow 2 $chop "<8 12>" $s "glitchsilen:4" #speed 0.55
+  #pan (slow 2 square) #coarse 5 #room 0.9 #shape 0.1
+  #resonance 0.1 #gain 0.9
+
+d4
+  $while "t(3,8)" (#gain 1)
+  $s "glitchhh*8"
+  #n (slow 16 "<11 0 26>")
+  #delay 0.95 #delaytime (range 0.005 0.1 (fast 3 perlin))
+  #delayfb (range 0.8 0.9 (fast 5 perlin))
+  #gain ((range 0.7 1.0 (fast ((irand 5)+1) perlin)) - 0.05)
+  #cut 1 #coarse (irand 2)
+  #speed (randcat[1, 1, 2, 1.5, 2.5])

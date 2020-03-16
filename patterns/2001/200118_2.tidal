@@ -1,0 +1,8 @@
+setcps 1.2
+
+d1 $iter 4 $s "super808 808:3"
+
+d2 $s "808hh*4" #gain (choose[0.8,1.0]) #room 0.1
+
+d3 $striate 8 $s "pirate" #cut 1 #begin perlin
+  #speed (rand/2+0.5)

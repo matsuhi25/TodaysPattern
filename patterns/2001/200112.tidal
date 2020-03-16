@@ -1,0 +1,29 @@
+setcps 1.1
+
+d1 $s "rx15*2" #shape 0.7
+
+d2
+  $every 3 (#coarse 8)
+  $every 4 (spin 2)
+  $whenmod 4 2 (iter 8)
+  $sometimes (off 0.125 (#s "glitch")) $s "808*8" #n (run "<8 6>") #shape 0.25
+
+d3 $every 2 rev $s "bass1:23(6,8,[0 3 0 2])"
+  #up (slow 4 "<0 3 -2 0>")
+  #room 0.3 #sz 0.8 #gain 0.85
+
+d4 $randslice 8 $s "apollo" #gain 0.8 #cut 1 #n (randcat[1,3,5,7])
+  #coarse (irand 4)
+
+d5 $s "rx15:11*8" #gain (range 0.8 1.0 (fast 11 perlin))
+
+d6
+  $sometimesBy 0.35 (off 0.125 (|+|n 24))
+  $every 3 (|+|n "-12")
+  $while "{f t}%8" (|- n 1) $s "rash*8"
+  #n ((run "<8 [5 10] [12 3] 24>") + "<26 <26 34>>" + 12)
+  #gain 0.8
+  #room "{0.7 0.5 0.25 0.5 0.65}%4" #sz 0.75
+  #coarse ((irand 24) + 24)
+
+

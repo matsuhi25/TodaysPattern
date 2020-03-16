@@ -1,0 +1,27 @@
+setcps 1.2
+
+d1
+  $sometimesBy 0.25 (fix (#s "808") (s "808oh"))
+  $off 0.25 (#s "808oh:0")
+  $sound "peri:1*2" #gain 1.1
+  #room 0.2 #sz 0.6
+
+d2
+  $off 0.01 (|*|speed 3.3)
+  $juxBy 0.25 (|*|speed "1.033")
+  $sound "bass1:2*8"
+  #lpf (range 100 1500 rand)
+  #resonance (range 0.1 0.3 (slow "<2 3 5>" sine))
+  #up "{0 5 6 7}%8" #room 0.5 #gain 0.85
+  #legato 1.0
+
+d3
+  $sometimes (stut 4 0.8 (range 0.01 0.3 rand))
+  $sound "glitch*8"
+  #n "{0 1 2 3 4 5 6 7}%4"
+  #delay 0.8 #delayfb 0.9 #delaytime (range 0.001 0.1 (slow 8 tri))
+  #pan (fast 3 cosine)
+  #speed (range 1.0 1.6 rand)
+  #crush ((irand 8) + 4) #shape 0.2
+
+hush

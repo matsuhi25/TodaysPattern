@@ -1,0 +1,18 @@
+setcps 1.4
+
+d1 $while (every 4 inv "t(3,8)") (#accelerate 2) $s "bass1:15(3,8)" #up 1 #speed (fast 2 "<1 2 1.5 1.25 2.25>")
+
+d2 $s "amenall2*4" #n (run "<[25 12] 3 25 7>")
+  #speed 1.4 #shape 0.125
+
+d3 $s "glitchkick(<3 5 3 2>,8)"
+
+d4 $every 4 (jux rev) $s "lfse:14(3,8)" #speed (range 1 4 (slow 4 saw))
+
+d5 $someCycles (stutWith 8 0.125 (|+ speed 1.01))$slow 2 $s "~ [909cp,808]" #room 0.4 #sz 0.9
+
+hush
+
+do
+  solo 1
+  solo 2

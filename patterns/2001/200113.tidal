@@ -1,0 +1,18 @@
+setcps 1.25
+
+d1
+  $sometimes (off 0.125 (#s "glitch"))
+  $s "feel*8" #n (run "<8 [8 4] 8 7>")
+  #delay 0.6  #delayfb 0.8 #delaytime (range 0.001 0.1 (fast 5 perlin))
+
+solo 2
+
+d2
+  $chunk 4 ((striate 8).(fast "<4 3 5 8>"))
+  $s "bass1:16(5,8,<0 2>)" #shape (range 0.1 0.7 (fast 5 perlin))
+  #room 0.5 #sz 0.9 #gain 0.85
+  #cutoff (range 1000 8000 (slow 8 sine))
+  #resonance 0.25
+
+
+d3 $fast 4 $degrade $s "[peri:1,bass2]*2" #shape 0.25

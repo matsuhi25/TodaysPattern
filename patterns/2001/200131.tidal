@@ -1,0 +1,26 @@
+
+d1 $density "<1 2 1.5 3.5>" $s "arpy*4" #n (run "<8 16>") #coarse 40
+  #room 0.5 #shape 0.5 #distort 0.5
+
+
+d3
+  $jux rev
+  $sometimesBy 0.25 (off 0.25 (|*|speed 2))
+  $s "gtr*4?" #up (choose[0,14,12,11,7,4])
+  #room 0.5 #sz 0.9 #gain 0.85
+  #coarse (irand 6)
+
+d4 $s "arbt*2" #coarse 4
+
+d3 $s "909hh*8" #shape 0.25
+  #delay 0.8 #delayfb 0.8
+  #delaytime (range 0.001 0.1 (fast 5 perlin))
+
+do
+  unsolo 3
+  unsolo 5
+
+d5
+  $stutWith 6 0.125 (|+ speed 1.1)
+  $s "<fmkick arsd>" #shape 0.25
+  #room 0.5 #sz 0.8

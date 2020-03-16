@@ -1,0 +1,20 @@
+setcps 1.3
+
+d1 $whenmod 4 2 (fast 4 . degrade) $s "rx15*2" #shape 0.25 #room 0.6
+
+d2 $someCyclesBy 0.35 (#accelerate "2") $every 2 (#n (irand 7)) $s "glitch(3,8)"
+
+d3 $s "808(4,8)" #n "{0 1 2 3 0 1 4 5}%4"
+  #shape 0.3
+
+d4 $while "f f <f t> f" (|+|legato 0.25)
+  $s "bass1*8" #lpf (range 200 2500 rand)
+  #resonance 0.25
+  #up "{0 <0 3 0 10>? 0 1}%4"
+  #n (every 2 rev "2 1") #legato 0.75
+
+d5 $chunk 4 (hurry 2) $every 2 rev $s "808cp*2 808cp*4" #speed 0.85
+
+d6 $juxBy 0.25 (|*|speed "1.08") $chunk 4 (hurry 2) $degradeBy 0.35 $striate 8 $s "pad:2" #speed (range 2 3.0 (slow 16 tri)) #coarse ((irand 8)+8)
+
+hush

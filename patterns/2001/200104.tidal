@@ -1,0 +1,34 @@
+setcps 1.25
+
+d1
+  $chunk 4 (off 0.125 (hurry 2))
+  $sometimesBy 0.3 (off 0.125 (|+|n 2))
+  $n "0 4 <1 6*2> 4" #s "rx15"
+  #shape 0.5 #pan 0.5
+  #speed 1.1
+
+d2 $s "rx15:11*8" #gain (range 0.7 1.1 (fast 4 perlin))
+  #coarse ((irand 12) + 8)
+
+d3
+  $sometimes (off 0.125 (|*|speed 4))
+  $density 4
+  $degradeBy "<0.3 0.6 0.25 0.9>"
+  $s "glitchkick:2*2" #shape 0.5
+
+d4 $s "bass1" #up (slow 4 "<0 7>") #distort 0.125 #cut 1
+
+d5
+  $sometimesBy 0.25 (|*|speed "-1")
+  $stut 3 0.2 0.3
+  $jux rev
+  $s "gtr(3,8,<0 2>)"
+  #speed 2 #up "<0 7 14 9 11>"
+  #room 0.5 #sz 0.9 #gain 0.85
+
+hush
+
+do
+  unmute 1
+  unmute 2
+  unmute 3

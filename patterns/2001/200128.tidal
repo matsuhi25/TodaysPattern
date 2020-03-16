@@ -1,0 +1,25 @@
+setcps 1.1
+
+d1
+  $degradeBy 0.25 $whenmod 4 2 rev
+  $s "supersquare*8" #n (fastcat[0,2,4,5,7,11,12,14] + "<12 24>")
+  #gain 0.6 #room 0.2 #sz 0.8 #voice 0.5
+  #hpf (range 500 6000 (slow 16 sine))
+
+d2 $jux (|+|n 1) $chop 4 $s "apollo/2" #n (irand 10) #gain 0.65 #cut 2
+  #lpf (range 500 5000 rand) #resonance 0.125 #speed 0.9
+
+d3
+  $stack[
+  s "arkick*2" #n 5,
+  s "~ arsd:7" #shape 0.25 #pan 0.25,
+  s "arrim:5(5,8)" #pan rand,
+  sometimes (off 0.125 (#gain 0.9)) $s "[~ arhh]*2" #pan 0.65,
+  s "~ clap:3",
+  s""
+         ]
+
+d4
+  $slow 2 $s "pulse(5,8,<0 3>)"
+  #n ((choose[0,2,7,11,12])+24)
+  #coarse 8 #gain 0.8 #room 0.3 #sz 0.9

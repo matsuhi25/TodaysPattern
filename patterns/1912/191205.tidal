@@ -1,0 +1,27 @@
+setcps 1.1
+
+do
+  p "uno"
+    $sometimesBy 0.25 (|+|sustain 0.05)
+    $midinote ("0(<5 6>,8,<0 0 3 3>)" + "<27>")
+    #s "uno" #sustain 0.01
+  p "unomod"
+    $stack[
+      ccn "20*8" #ccv (range 40 110 (slow 8 tri)),
+      ccn "21*8" #ccv (range 50 90 rand),
+      ccn "44*4" #ccv "10"
+      ] #s "uno"
+
+d1 $sound "[ifdrums,808bd:1]*2" #shape 0.2
+
+d2
+  $sometimes (|+|n 3)
+  $sound "glitch(5,8)" #n 2 #pan (fast "<3 2>" square)
+  #coarse (irand 4) #shape 0.3 #n (irand 20)
+  
+d3
+  $sometimesBy 0.35 (off 0.125 (|+|n 12))
+  $sometimesBy 0.45 (off 0.125 (|+|n 24))
+  $n ("[0,7,14](3,8,<0 2>)" + 3)
+  #sound "supermandolin" #sustain 0.8
+  #room 0.5

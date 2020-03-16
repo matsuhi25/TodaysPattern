@@ -1,0 +1,22 @@
+setcps 1.2
+
+
+d1
+  $sometimes (off 0.125 (|*|speed 2))
+  $jux (rev . (|*|speed "1.01"))
+  $every 4 (|+|up 7)
+  $s "[elpad1(3,8)]" #legato 1
+  #coarse (slow 8 (run 16))
+  #room 0.5 #sz 0.9
+  #shape 0.5
+
+d2 $s "arhh*8" #shape 0.25 #legato 0.75
+
+d3 $someCyclesBy 0.3 ((|+|n 7) . fast 4 . (degradeBy 0.45))
+  $s "arkick*2"
+
+d4
+  $jux rev
+  $chunk 4 (ply 4)
+  $s "feel(6,8,[2 3])" #n (run 8)
+  #speed 1.5 #shape 0.25

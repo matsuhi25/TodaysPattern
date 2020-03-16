@@ -1,0 +1,17 @@
+setcps 1.4
+
+d1
+  $every 4 (jux (#speed "2 1 2 1"))
+  $sometimes (off 0.125 (|*|speed 4))
+  $s "peri:1 [odx peri:1] glitch2:2 peri:9"
+  #coarse (irand 5) #shape 0.25 #legato 1.2
+
+d2
+  $sometimes (off 0.125 ((#s "glitch").(#accelerate 2)))
+  $whenmod 8 6 (rev)
+  $s "pulse(6,8,<[0 3] [2 1]>)"
+  #n ((run "<12 24 16 <58 72>>") + 12)
+  #distort (fast 12 perlin) #gain 0.9
+
+d3 $jux rev $s "super808(5,8)" #n (slow 4 (run "<8 12>"))
+  #voice (range 0.1 0.8 (slow 16 saw))

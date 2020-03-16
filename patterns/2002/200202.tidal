@@ -1,0 +1,27 @@
+setcps 1.35
+
+
+
+d1
+  $off 0.25 (#s "aroh:3")
+  $s "arkick:6*2"
+  #shape 0.25 #coarse 2
+
+d2
+  $sometimesBy 0.25 (|+|n "<12 -12 24>")
+  $foldEvery [3,5] (slow 2)
+  $jux rev $s "superhex(3,8)" #n "<0 3 10 7>*2"
+  #coarse (randcat[1,2,3])
+
+d3
+  $every 2 (jux rev)
+  $while "t f t f" (#accelerate 1.2)
+  $sometimesBy 0.4 (fast 2) $sometimesBy 0.25 (|+|n "1")
+  $s "bass1:1*4" #legato 0.8 #up "<0 5 7 3 -2>/2"
+  #lpf (range 100 2500 rand) #resonance 0.15
+
+d4
+  $every 4 (spin 2)
+  $every 2 (stut 2 0.5 0.125) $s "amenall2*4"
+  #speed 1.3 #n ((run ("<8 <25 17>>")) + "<0 1>/4")
+  #room 0.5

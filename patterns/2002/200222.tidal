@@ -1,0 +1,37 @@
+setcps 1.4
+
+
+hush
+
+d1
+  $sometimesBy 0.15 (|+|n "-12")
+  $s (sometimes (fast 2) "minilogue*4")
+  #n ("{-1 0 4 7 11 14}%4" + "<0 5>/4")
+  #sustain 0.04
+
+p "mod"
+  $stack [
+    -- amp
+    ccn "39*8" #ccv (choose[120,90]),
+    -- release
+    ccn "19*4" #ccv (range 20 40 (slow 18 sine))
+         ] #s "minilogue"
+
+
+
+d2
+  $whenmod 16 12 (|+ n "<4 2>/2")
+  $someCyclesBy 0.35 (stut 2 0.7 0.125)
+  $s "amencutup*4" #n (run "<8 13>")
+  #speed 1.4 #room 0.2 #shape 0.25
+  #lpf 3400 #gain 0.9
+
+d3
+  $sometimes (off 0.125 (#gain 0.7))
+  $s "arcp(<2 <2 3>>,8)" #gain 0.9
+  #pan rand
+  
+
+d4 $whenmod 8 6 (#gain (slow 2 (range 0.5 1.1 saw)))
+  $s "arhh:1*12" #room 0.5 #sz 0.9
+  #gain 0

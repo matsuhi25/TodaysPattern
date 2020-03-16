@@ -1,0 +1,38 @@
+setcps 1.25
+
+d1 $density "1 1 1 2"
+  $s "glitchperc*8" #n (irand 20) #cut 1
+
+d2
+  $fix (#speed 0.75) (n 1)
+  $sometimesBy 0.25 (fast 2 )
+  $stut 4 0.9 0.005
+  $n "{1 3*2 1 [6*3,1] 1 5 7*2}%4"
+  #s "peri" #shape 0.25 #coarse "<8 1 4 2 1>"
+  #speed (randcat[1,0.95,1.5])
+
+d3
+  $whenmod 8 6 (#cut 1)
+  $stut 5 0.9 (range 0.001 0.1 (slow 8 cosine))
+  $every 2 (#n (irand 20))
+  $chunk 2 (hurry 2)
+  $s "glitch*8" #speed (range 1.0 2.0 (slow 8 saw))
+
+d4 $s "glitchhh*8"
+  #gain (range 0.7 1.0 (fast 5 perlin))
+  #delay 0.9
+  #delaytime (range 0.001 0.1 perlin)
+  #delayfb 0.8
+  #speed (range 0.85 0.87 rand)
+  #cut 2
+
+d5
+  $sometimes (stut 8 0.9 0.002)
+  $s "moog(5,8)?"
+  #room 0.9 #sz 0.7 #legato 1.25
+  #up ("{0 2 3 10 15 14 12}%1") #gain 0.85
+  #coarse ((irand 24)+8)
+  #n ((irand 12))
+  #lpf (range 300 8000 (slow 8 saw))
+  #resonance 0.2
+
